@@ -44,15 +44,29 @@
                                (midi->hz reference-pitch midi-note))
           note               (if (= event-type :note)
                                (map->Note
-                                 {:offset       current-offset
-                                  :instrument   id
-                                  :volume       volume
-                                  :track-volume track-volume
-                                  :panning      panning
-                                  :midi-note    midi-note
-                                  :pitch        pitch
-                                  :duration     quant-duration
-                                  :voice        current-voice}))
+                                {:offset       current-offset
+                                 :instrument   id
+                                 :volume       volume
+                                 :track-volume track-volume
+                                 :panning      panning
+                                 :midi-note    midi-note
+                                 :pitch        pitch
+                                 :duration     quant-duration
+                                 :voice        current-voice
+                                 :beats beats
+                                 :type :note}))
+          rest (if (= event-type :rest)
+                 {:offset       current-offset
+                  :instrument   id
+                  :volume       0
+                  :track-volume 0
+                  :panning      panning
+                  :midi-note    0
+                  :pitch        0
+                  :duration     quant-duration
+                  :voice        current-voice
+                  :beats beats
+                  :type :rest})
           min-duration       (when min-duration
                                (min full-duration min-duration))]
       (log/debug (case event-type
@@ -72,7 +86,7 @@
       {:instrument id
        :events     (case event-type
                      :note (if (pos? quant-duration) [note] [])
-                     :rest [])
+                     :rest [rest])
        :state      {:duration             (if (pos? cram-level)
                                             duration
                                             {:beats beats :ms ms})
