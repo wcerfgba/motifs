@@ -1,2 +1,2 @@
-{:deps {alda/core {:mvn/version "0.6.4"}
+{:deps {alda/core {:local/root "arla-core"}
         alda/sound-engine-clj {:mvn/version "1.3.0"}}}
