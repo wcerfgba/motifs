@@ -1,5 +1,7 @@
 (ns motifs
-  (:require [utils :refer [play]]))
+  (:require [alda.core :as alda]))
+
+(def play (partial alda.core/alda "play" "-c"))
 
 (def m-1
   "piano: o3
@@ -8,3 +10,7 @@
 
 (comment
   (play m-1))
+
+
+
+(alda.core/->str (alda.core/parse-events! m-1))
