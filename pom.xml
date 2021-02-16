@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.djy</groupId>
+  <artifactId>alda-clj</artifactId>
+  <version>0.2.3</version>
+  <name>alda-clj</name>
+  <description>a Clojure library for live-coding music with Alda</description>
+  <dependencies>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>clojure</artifactId>
+      <version>1.9.0</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+  </build>
+  <repositories>
+    <repository>
+      <id>clojars</id>
+      <url>https://clojars.org/repo</url>
+    </repository>
+  </repositories>
+  <scm>
+    <connection>scm:git:git://github.com/daveyarwood/alda-clj.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/daveyarwood/alda-clj.git</developerConnection>
+    <tag>master</tag>
+    <url>https://github.com/daveyarwood/alda-clj</url>
+  </scm>
+</project>
