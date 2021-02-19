@@ -1,7 +1,13 @@
 (ns utils
-  (:require [alda.core :as alda]))
+  (:require [alda.core :as alda]
+            [clojure.string :as string]))
+(def stop alda/stop!)
 
-(def play (partial alda/alda "play" "-c"))
+(defn play
+  [& strs]
+  (stop)
+  (alda/alda "play" "-c" (string/join " " strs)))
+
 
 (def events alda/parse-events!)
 
@@ -19,24 +25,26 @@
    10 "b7"
    11 "7"})
 
-(def ^:private note->integer
-  {"C" 0
-   "C#" 1
-   "Db" 1
-   "D" 2
-   "D#" 3
-   "Eb" 3
-   "E" 4
-   "F" 5
-   "F#" 6
-   "Gb" 6
-   "G" 7
-   "G#" 8
-   "Ab" 8
-   "A" 9
-   "A#" 10
-   "Bb" 10
-   "B" 11})
+(def ^:private notes-integers
+  [["C" 0]
+   ["C#" 1]
+   ["Db" 1]
+   ["D" 2]
+   ["D#" 3]
+   ["Eb" 3]
+   ["E" 4]
+   ["F" 5]
+   ["F#" 6]
+   ["Gb" 6]
+   ["G" 7]
+   ["G#" 8]
+   ["Ab" 8]
+   ["A" 9]
+   ["A#" 10]
+   ["Bb" 10]
+   ["B" 11]])
+
+(def ^:private note->integer (into {} notes-integers))
 
 (defn- interpret-note-in-key
   [key note]
@@ -96,6 +104,6 @@
                                                    alda.core.Rest} (type %)))
                                        (map format-note-degree)
                                        (alda/->str))))
-         (sort (keys note->integer)))))
+         (map first notes-integers))))
 
 (comment (key-interpretations "piano: c/e/g"))
