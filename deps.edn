@@ -1,1 +1,2 @@
-{:deps {alda/core {:local/root "alda-clj"}}}
+{:paths ["."]
+ :deps {alda/core {:local/root "alda-clj"}}}
