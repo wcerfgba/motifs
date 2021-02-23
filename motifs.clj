@@ -69,3 +69,30 @@
 
 (comment
   (play release-me-m))
+
+(def m2
+  "piano: V1:
+   g4. b- r8 f | g b- >c <b- >d12 c <b- >c8 <b-")
+
+(comment
+  (play m2)
+  (key-interpretations m2)
+  ;; => ("C     5 b7 r  4 |  5 b7  1 b7  2  1 b7  1 b7"
+  ;;     "C#   b5  6 r  3 | b5  6  7  6 b2  7  6  7  6"
+  ;;     "Db   b5  6 r  3 | b5  6  7  6 b2  7  6  7  6"
+  ;;     "D     4 b6 r b3 |  4 b6 b7 b6  1 b7 b6 b7 b6"
+  ;;     "D#    3  5 r  2 |  3  5  6  5  7  6  5  6  5"
+  ;;     "Eb    3  5 r  2 |  3  5  6  5  7  6  5  6  5"
+  ;;     "E    b3 b5 r b2 | b3 b5 b6 b5 b7 b6 b5 b6 b5"
+  ;;     "F     2  4 r  1 |  2  4  5  4  6  5  4  5  4"
+  ;;     "F#   b2  3 r  7 | b2  3 b5  3 b6 b5  3 b5  3"
+  ;;     "Gb   b2  3 r  7 | b2  3 b5  3 b6 b5  3 b5  3"
+  ;;     "G     1 b3 r b7 |  1 b3  4 b3  5  4 b3  4 b3"
+  ;;     "G#    7  2 r  6 |  7  2  3  2 b5  3  2  3  2"
+  ;;     "Ab    7  2 r  6 |  7  2  3  2 b5  3  2  3  2"
+  ;;     "A    b7 b2 r b6 | b7 b2 b3 b2  4 b3 b2 b3 b2"
+  ;;     "A#    6  1 r  5 |  6  1  2  1  3  2  1  2  1"
+  ;;     "Bb    6  1 r  5 |  6  1  2  1  3  2  1  2  1"
+  ;;     "B    b6  7 r b5 | b6  7 b2  7 b3 b2  7 b2  7")
+)
+
