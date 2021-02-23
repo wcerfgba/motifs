@@ -1,6 +1,7 @@
 (ns utils
   (:require [alda.core :as alda]
             [clojure.string :as string]))
+
 (def stop alda/stop!)
 
 (defn play
@@ -76,6 +77,9 @@
 
                   (= alda.core.Chord (type event))
                   (conj events (interpret-chord-in-key key event))
+
+                  (= alda.core.Rest (type event))
+                  (conj events (assoc-in event [:duration :components] '()))
 
                   :else
                   (conj events event)))
