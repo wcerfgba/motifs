@@ -123,3 +123,33 @@
   ;;     "B    b6 b5  4 |  2 b3  7  1 | b6 b5  4 |  2 b3  7 | b6 b5  4 |  2 b3  7  1 | b6 b5  4 | b3  2 b6")
 )
 
+(def m4
+  "piano: V1:
+   o4 d8. g8 f16 e8 | f8 g16 a16 | c8. f8 e16 d8 | g8 a16 b-16")
+
+(comment
+  (play m4))
+
+(def h4
+  "vi i V ii"
+  "V2:
+   o2 d2/>f/<a/>c | <f4/>a/<c/>e | <c2/>e/<g/>b | <g4/>b-/<d/>f")
+
+(comment
+  (play "piano:" h4)
+  (play m4 h4))
+
+(def h5
+  "V2: 
+   o2 g2/>b-/<d/>f | <c/>e/<g/>b | <a/>c/<e/>g | <d/>f+/<a/>c+")
+
+(comment
+  (play "piano:" h5))
+
+(def m5
+  "piano: V1:
+   o4 g8 f d <b- | >c d e g | a b >c e | d c <b a")
+
+(comment
+  (play m5)
+  (play m5 h5))
